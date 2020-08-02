@@ -1,0 +1,34 @@
+server:
+   port: 9999
+   
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: [TU_PASSWORD]
+        url: jdbc:postgresql://[TU_IP_SERVER_BD]/[TU_BD]
+        username: [TU_USUARIO]
+    jackson:
+        default-property-inclusion: NON_NULL
+    jpa:
+        database: postgresql
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+        show-sql: true
+    
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka
+         
+security:
+  oauth2:
+    client:
+      client-id: [TU_CLIENT_ID]
+      client-secret: [TU_CLIENT_SECRET]
+      authorized-grant-types: password
+      scope: read,write 
